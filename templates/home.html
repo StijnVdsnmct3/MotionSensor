@@ -1,0 +1,37 @@
+ {% extends "basis.html" %}
+ {% block title %}
+     Home
+ {% endblock %}
+{% block home %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <div class="flex-figures">
+
+        <div class="flex-figure">
+            <a href="{{ url_for('database') }}">
+        {{ macros.build_figure(database.jpg,'database',linkdatabase) }}
+            </a>
+        </div>
+
+        <div class="flex-figure">
+            <a href="{{ url_for('logs') }}">
+        {{ macros.build_figure(logs.jpg,'logs',linklogs) }}
+                </a>
+        </div>
+
+        <div class="flex-figure">
+            <a href="{{ url_for('comments') }}">
+        {{ macros.build_figure(comments.jpg,'comments',linkcomments) }}
+                </a>
+        </div>
+
+        <div class="flex-figure">
+            <a href="{{ url_for('statistics') }}">
+        {{ macros.build_figure(statistics.jpg,'statistics',linkstatistics) }}
+                </a>
+        </div>
+
+    </div>
+
+{%  endblock %}

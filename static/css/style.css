@@ -1,0 +1,112 @@
+header {
+	position: absolute;
+	background-color: gray;
+	height: 52px;
+	right: 0;
+	top: 0;
+	left: 0;
+	padding: 1rem;
+
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover
+{
+    background-color: #4CAF50;
+}
+
+.active
+{
+    background-color: #4CAF50;
+}
+.right
+{
+    float:right;
+}
+
+
+.leftfooter{
+text-align:left;
+float:left;
+}
+.rightfooter{
+float:right;
+text-align:right;
+}
+.centeredfooter{
+text-align:center;
+}
+
+footer {
+  height: 80px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
+.flex-figures {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:  wrap;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.flex-figure {
+    margin: 10px;
+    width: 30%;
+}
+
+figure > image
+{
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .2s ease-in-out;
+    transition: .3s ease-in-out;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+img
+{
+    display: block;
+    margin: 0 auto;
+}
+.flex-figure > figure
+{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid
+}

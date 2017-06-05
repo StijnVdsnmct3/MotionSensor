@@ -1,0 +1,51 @@
+footer {
+  height: 80px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+
+
+header {
+	position: absolute;
+	background-color: gray;
+	height: 52px;
+	right: 0;
+	top: 0;
+	left: 0;
+	padding: 1rem;
+	
+}
+
+.left{
+text-align:left;
+float:left;
+}
+.right{
+float:right;
+text-align:right;
+}
+.centered{
+text-align:center;
+}
+
+.leftheader{
+text-align:left;
+float:left;
+}
+.rightheader{
+float:right;
+text-align:right;
+}
+.centeredheader{
+text-align:center;
+}
+.login {
+    width: 800px;
+    margin: 0 auto;
+}

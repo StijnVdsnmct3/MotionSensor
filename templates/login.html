@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/login.css') }}">
+</head>
+<body>
+
+<header>
+	<p class="leftheader"></p>
+	<p class="rightheader"></p>
+    <p class="centeredheader"><img src={{ url_for('static',filename='images/sec.jpg') }}></p>
+</header>
+<div class="login">
+<form>
+    <label>Username:</label>
+    <input type="text" placeholder="Enter Username" name="uname">
+    <label>Password:</label>
+    <input type="password" placeholder="Enter Password" name="psw">
+    <button type="submit" >Login</button>
+</form>
+</div>
+
+<footer>
+	<p class="left">Left aligned text here<br />Next line here</p>
+	<p class="right">Right aligned text here<br />Next line here</p>
+    <p class="centered">Center Text here<br />Next line here</p>
+</footer>
+
+</body>
+</html>

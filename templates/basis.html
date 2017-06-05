@@ -1,10 +1,39 @@
+{% import 'macros/macros.html' as macros %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
 </head>
 <body>
 
+<header>
+<ul>
+  {% block navigation %}
+      <li><a {% block home %} {% endblock %}href="{{ url_for('home') }}">Home</a></li>
+      <li><a {% block database %} {% endblock %} href="{{ url_for('database') }}">Database</a></li>
+      <li><a {% block logs %} {% endblock %}href="{{ url_for('logs') }}">Logs</a></li>
+      <li><a {% block comments %} {% endblock %}href="{{ url_for('comment') }}">Comments</a></li>
+      <li class="right"><a {% block statistics %} {% endblock %} href="{{ url_for('stats') }}">Statistics</a></li>
+  {% endblock %}
+</ul>
+</header>
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<footer>
+	<p class="leftfooter">Left aligned text here<br />Next line here</p>
+	<p class="rightfooter">Right aligned text here<br />Next line here</p>
+    <p class="centeredfooter">Center Text here<br />Next line here</p>
+</footer>
 </body>
 </html>
