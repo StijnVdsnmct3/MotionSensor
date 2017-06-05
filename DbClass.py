@@ -79,3 +79,13 @@ class DbClass:
         self.__cursor.execute(sqlCommand)
         self.__connection.commit()
         self.__cursor.close()
+
+    def insertlog(self, LOCID, Tijdstip, Tp, File):
+        # Query met parameters
+        sqlQuery = "INSERT INTO logs (LOCID, Tijdstip, Tp, File) VALUES ('{param1}','{param2}','{param3}','{param4}')"
+        # Combineren van de query en parameter
+        sqlCommand = sqlQuery.format(param1=LOCID, param2=Tijdstip, param3=Tp, param4=File)
+
+        self.__cursor.execute(sqlCommand)
+        self.__connection.commit()
+        self.__cursor.close()
