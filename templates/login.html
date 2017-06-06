@@ -12,7 +12,7 @@
     <p class="centeredheader"><img src={{ url_for('static',filename='images/sec.jpg') }}></p>
 </header>
 <main>
-    <form action="/login" method="POST">
+    <form action="{{ url_for('Login') }}" method="POST">
         <label>Username:</label>
         <input type="text" placeholder="Enter Username" name="uname">
         <label>Password:</label>
@@ -22,7 +22,7 @@
 </main>
 
 <footer>
-	<p class="left">Left aligned text here<br />Next line here</p>
+	<p class="left"><br />Next line here</p>
 	<p class="right">Right aligned text here<br />Next line here</p>
     <p class="centered">Center Text here<br />Next line here</p>
 </footer>

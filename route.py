@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, url_for, session, abort, request
+from flask import render_template, redirect, url_for, session, abort, request, flash
 from DbClass import DbClass
 import os
 
@@ -22,8 +22,6 @@ def Login():
     result = do.getuser(username,password)
     if result:
         session['logged_in'] = True
-    else:
-        session['logged_in'] = False
     return Index()
 
 @app.route('/Home')
@@ -50,6 +48,34 @@ def commentsent():
     do = DbClass()
     do.setcomments(naam,voornaam,bericht)
     return render_template('commentsent.html')
+
+@app.route('/database')
+def database():
+    return render_template('database.html')
+
+@app.route('/locatie')
+def locatie():
+    do = DbClass()
+    result = do.getlocaties()
+    return render_template('locatie.html', locaties = result)
+
+@app.route('/type')
+def type():
+    do = DbClass()
+    result = do.gettypes()
+    return render_template('types.html', types = result)
+
+@app.route('/user')
+def user():
+    do = DbClass()
+    result = do.getusers()
+    return render_template('user.html', users = result)
+
+@app.route('/commenttabel')
+def commenttabel():
+    do = DbClass()
+    result = do.getcomments()
+    return render_template('commenttabel.html', cmts = result)
 
 
 if __name__ == '__main__':

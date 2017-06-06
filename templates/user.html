@@ -1,0 +1,28 @@
+{% extends "basis.html" %}
+ {% block title %}
+     Logs
+ {% endblock %}
+{% block database %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <main>
+    <table>
+    <tr>
+        <th>UserID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Role</th>
+     </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[4] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </main>
+
+{%  endblock %}

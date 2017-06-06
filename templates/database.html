@@ -1,0 +1,18 @@
+{% extends "basis.html" %}
+ {% block title %}
+     database
+ {% endblock %}
+ {% block database %}
+    class="active"
+ {% endblock %}
+ {% block body %}
+    <main>
+     <a href="{{ url_for('locatie') }}">Locatie</a>
+     <a href="{{ url_for('type') }}">Type</a>
+     <a href="{{ url_for('user') }}">User</a>
+     <a href="{{ url_for('commenttabel') }}">Comments</a>
+
+    </main>
+
+
+ {%  endblock %}

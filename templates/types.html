@@ -1,0 +1,24 @@
+{% extends "basis.html" %}
+ {% block title %}
+     Logs
+ {% endblock %}
+{% block database %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <main>
+    <table>
+    <tr>
+        <th>TID</th>
+        <th>Type</th>
+     </tr>
+    {% for type in types %}
+        <tr>
+            <td>{{ type[1] }}</td>
+            <td>{{ type[2] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </main>
+
+{%  endblock %}

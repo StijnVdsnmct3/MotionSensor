@@ -1,0 +1,28 @@
+{% extends "basis.html" %}
+ {% block title %}
+     Logs
+ {% endblock %}
+{% block database %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <main>
+    <table>
+    <tr>
+        <th>COID</th>
+        <th>Naam</th>
+        <th>Voornaam</th>
+        <th>Bericht</th>
+     </tr>
+    {% for comment in cmts %}
+        <tr>
+            <td>{{ comment[1] }}</td>
+            <td>{{ comment[2] }}</td>
+            <td>{{ comment[3] }}</td>
+            <td>{{ comment[4] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </main>
+
+{%  endblock %}

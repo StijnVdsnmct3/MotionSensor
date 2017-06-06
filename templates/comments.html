@@ -6,7 +6,7 @@
     class="active"
 {% endblock %}
 {% block body %}
-    <div class="comments">
+    <main>
         <form action="{{ url_for('commentsent') }}" method="post">
             <label>Naam:</label>
             <input type="text" placeholder="Enter Name" name="naam">
@@ -15,6 +15,6 @@
             <label>Bericht:</label>
             <input  size="255"  type="text" placeholder="Enter Comment" name="comment">
         </form>
-    </div>
+    </main>
 
 {%  endblock %}

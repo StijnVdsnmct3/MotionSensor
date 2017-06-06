@@ -15,7 +15,7 @@
 <header>
 <ul>
   {% block navigation %}
-      <li><a {% block home %} {% endblock %}href="{{ url_for('home') }}">Home</a></li>
+      <li><a {% block home %} {% endblock %}href="{{ url_for('Homepage') }}">Home</a></li>
       <li><a {% block database %} {% endblock %} href="{{ url_for('database') }}">Database</a></li>
       <li><a {% block logs %} {% endblock %}href="{{ url_for('logs') }}">Logs</a></li>
       <li><a {% block comments %} {% endblock %}href="{{ url_for('comment') }}">Comments</a></li>

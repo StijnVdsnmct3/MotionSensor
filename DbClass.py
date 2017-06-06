@@ -29,6 +29,15 @@ class DbClass:
         self.__cursor.close()
         return result
 
+    def getcomments(self):
+        # Query zonder parameters
+        sqlQuery = "SELECT * FROM comments"
+
+        self.__cursor.execute(sqlQuery)
+        result = self.__cursor.fetchall()
+        self.__cursor.close()
+        return result
+
     def gettypes(self):
         # Query zonder parameters
         sqlQuery = "SELECT * FROM types"
