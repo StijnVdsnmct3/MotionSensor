@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="motionpi">
+  <component name="PublishConfigData" serverName="motionpi" uploadOnCheckin="41b2eb25-687c-48cf-b412-3b02708ebf55">
     <serverData>
       <paths name="motionpi">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/project1" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="motionpi" />
   </component>
 </project>

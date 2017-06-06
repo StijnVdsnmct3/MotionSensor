@@ -1,34 +1,34 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, redirect, url_for, session, abort, request
 from DbClass import DbClass
 import os
 
 
 app = Flask(__name__)
-
+app.secret_key = 'wa is dit'
 
 @app.route('/')
-def login():
-    return render_template('login.html')
+def Index():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    else:
+        return render_template('home.html')
 
-@app.route('/Home', methods=['post'])
-def Homepage():
-    error = None
-    from flask import request
-
+@app.route('/login', methods=['POST'])
+def Login():
     username = request.form['uname']
     password = request.form['psw']
-
     do = DbClass()
-
-    result = do.getuser(username, password)
-
+    result = do.getuser(username,password)
     if result:
-        return render_template('home.hmtl', role=result[3],)
+        session['logged_in'] = True
     else:
-        error = "Verkeerde Login"
-        return render_template('login.html', error= error)
+        session['logged_in'] = False
+    return Index()
 
+@app.route('/Home')
+def Homepage():
+    render_template('home.html')
 
 @app.route('/Logs')
 def Logs():
