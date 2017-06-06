@@ -110,3 +110,23 @@ img
     overflow: hidden;
     border: 1px solid
 }
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: blue;
+    color: #333333;
+}
+
+.logs {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.comments {
+    width: 800px;
+    margin: 0 auto;
+}

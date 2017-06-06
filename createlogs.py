@@ -13,7 +13,7 @@ video = False
 foto = True
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup (sensor, GPIO.OUT)
+GPIO.setup (sensor, GPIO.IN)
 
 
 #locaties living=1 keuken=2 gang=3

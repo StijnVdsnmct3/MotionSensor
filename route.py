@@ -7,27 +7,49 @@ from DbClass import DbClass
 app = Flask(__name__)
 
 
-@app.route('/', methods=['post'])
+@app.route('/')
 def login():
-    error = None
-    from flask import request
-    if request.method == 'post':
-        username = request.form['uname']
-        password = request.form['psw']
-
-        do = DbClass()
-
-        result = do.getuser(username,password)
-
-        if result:
-            return render_template('home.hmtl', role=result[3])
-        else:
-            error = "Verkeerde Login"
     render_template('login.html',error=error)
 
-@app.route('/Home')
+@app.route('/Home', methods=['post'])
 def Homepage():
-    return render_template('home.html')
+    error = None
+    from flask import request
+
+    username = request.form['uname']
+    password = request.form['psw']
+
+    do = DbClass()
+
+    result = do.getuser(username, password)
+
+    if result:
+        return render_template('home.hmtl', role=result[3],)
+    else:
+        error = "Verkeerde Login"
+        return render_template('login.html', error= error)
+
+
+@app.route('/Logs')
+def Logs():
+    do = DbClass()
+    result = do.getlogs()
+    return render_template('logs.html', logs=result)
+
+@app.route('/Comments')
+def comments():
+    return render_template('comments.html')
+
+@app.route('/commentsent', methods=['post'])
+def commentsent():
+    from flask import request
+
+    naam = request.form['naam']
+    voornaam = request.form['voornaam']
+    bericht = request.form['comment']
+    do = DbClass()
+    do.setcomments(naam,voornaam,bericht)
+    return render_template('commentsent.html')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,20 @@
+{% extends "basis.html" %}
+ {% block title %}
+     Home
+ {% endblock %}
+{% block comments %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <div class="comments">
+        <form action="{{ url_for('commentsent') }}" method="post">
+            <label>Naam:</label>
+            <input type="text" placeholder="Enter Name" name="naam">
+            <label>Voornaam:</label>
+            <input type="text" placeholder="Enter Surname" name="voornaam">
+            <label>Bericht:</label>
+            <input  size="255"  type="text" placeholder="Enter Comment" name="comment">
+        </form>
+    </div>
+
+{%  endblock %}
