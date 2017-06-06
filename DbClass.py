@@ -6,7 +6,7 @@ class DbClass:
             "host": "localhost",
             "user": "testconnect",
             "passwd": "testconnect",
-            "db": "homesecurity"
+            "db": "HomeSecurity"
         }
 
         self.__connection = connector.connect(**self.__dsn)
