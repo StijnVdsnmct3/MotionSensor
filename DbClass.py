@@ -4,8 +4,8 @@ class DbClass:
 
         self.__dsn = {
             "host": "localhost",
-            "user": "root",
-            "passwd": "Derter7027-",
+            "user": "testconnect",
+            "passwd": "testconnect",
             "db": "homesecurity"
         }
 
