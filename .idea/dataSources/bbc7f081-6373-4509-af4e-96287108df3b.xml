@@ -7,100 +7,157 @@
     <schema id="2" name="information_schema"/>
     <schema id="3" name="mysql"/>
     <schema id="4" name="performance_schema"/>
-    <table id="5" parent="1" name="locatie">
-      <comment>locatiemotionsensors</comment>
-    </table>
-    <table id="6" parent="1" name="Type"/>
-    <table id="7" parent="1" name="comments"/>
-    <table id="8" parent="1" name="Logs"/>
-    <column id="9" parent="5" name="LOID">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="10" parent="5" name="LocatieNaam">
-      <data-type>varchar(100)|0</data-type>
-    </column>
-    <key id="11" parent="5" name="PRIMARY">
-      <columns>LOID</columns>
-      <primary>1</primary>
-    </key>
-    <column id="12" parent="6" name="TID">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="13" parent="6" name="TypeNaam">
-      <data-type>varchar(80)|0</data-type>
-    </column>
-    <key id="14" parent="6" name="PRIMARY">
-      <columns>TID</columns>
-      <primary>1</primary>
-    </key>
-    <column id="15" parent="7" name="COID">
+    <table id="5" parent="1" name="comments"/>
+    <table id="6" parent="1" name="users"/>
+    <table id="7" parent="1" name="types"/>
+    <table id="8" parent="1" name="locatie"/>
+    <table id="9" parent="1" name="logs"/>
+    <column id="10" parent="5" name="COID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="16" parent="7" name="Naam">
-      <data-type>varchar(120)|0</data-type>
-    </column>
-    <column id="17" parent="7" name="Voornaam">
-      <data-type>varchar(120)|0</data-type>
-    </column>
-    <column id="18" parent="7" name="Bericht">
-      <data-type>varchar(400)|0</data-type>
-    </column>
-    <key id="19" parent="7" name="PRIMARY">
-      <columns>COID</columns>
-      <primary>1</primary>
-    </key>
-    <column id="20" parent="8" name="ID">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-      <sequence-identity>1</sequence-identity>
-    </column>
-    <column id="21" parent="8" name="LOCID">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="22" parent="8" name="TYPE">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-    </column>
-    <column id="23" parent="8" name="Tijdstip">
-      <mandatory>1</mandatory>
-      <data-type>datetime|0</data-type>
-    </column>
-    <column id="24" parent="8" name="File">
+    <column id="11" parent="5" name="Naam">
       <mandatory>1</mandatory>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="25" parent="8" name="Notitie">
+    <column id="12" parent="5" name="Voornaam">
+      <mandatory>1</mandatory>
+      <data-type>varchar(120)|0</data-type>
+    </column>
+    <column id="13" parent="5" name="Bericht">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <key id="14" parent="5" name="PRIMARY">
+      <columns>COID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="15" parent="6" name="USERID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="16" parent="6" name="Username">
+      <mandatory>1</mandatory>
+      <data-type>varchar(150)|0</data-type>
+    </column>
+    <column id="17" parent="6" name="Password">
+      <mandatory>1</mandatory>
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="18" parent="6" name="Role">
+      <mandatory>1</mandatory>
+      <data-type>varchar(150)|0</data-type>
+    </column>
+    <index id="19" parent="6" name="users_Username_uindex">
+      <columns>Username</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="20" parent="6" name="PRIMARY">
+      <columns>USERID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="21" parent="6" name="users_Username_uindex">
+      <columns>Username</columns>
+      <underlying-index>users_Username_uindex</underlying-index>
+    </key>
+    <column id="22" parent="7" name="TID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="23" parent="7" name="Type">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="24" parent="7" name="PRIMARY">
+      <columns>TID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="25" parent="8" name="LOID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="26" parent="8" name="LocatieNaam">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <index id="27" parent="8" name="locatie_LocatieNaam_uindex">
+      <columns>LocatieNaam</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="28" parent="8" name="PRIMARY">
+      <columns>LOID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="29" parent="8" name="locatie_LocatieNaam_uindex">
+      <columns>LocatieNaam</columns>
+      <underlying-index>locatie_LocatieNaam_uindex</underlying-index>
+    </key>
+    <column id="30" parent="9" name="LogID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="31" parent="9" name="LOCID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="32" parent="9" name="Tijdstip">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="33" parent="9" name="Tp">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="34" parent="9" name="File">
+      <mandatory>1</mandatory>
+      <data-type>varchar(500)|0</data-type>
+    </column>
+    <column id="35" parent="9" name="Notitie">
       <data-type>varchar(300)|0</data-type>
     </column>
-    <column id="26" parent="8" name="Belangrijk">
+    <column id="36" parent="9" name="Belangrijk">
       <data-type>bit(1)|0</data-type>
       <default-expression>b&apos;0&apos;</default-expression>
     </column>
-    <index id="27" parent="8" name="Logs_File_uindex">
+    <index id="37" parent="9" name="logs_File_uindex">
       <columns>File</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="28" parent="8" name="Logs_locatie_LOID_fk">
+    <index id="38" parent="9" name="logs_locatie_LOID_fk">
       <columns>LOCID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="29" parent="8" name="Logs_Type_TID_fk">
-      <columns>TYPE</columns>
+    <index id="39" parent="9" name="logs_types_TID_fk">
+      <columns>Tp</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="30" parent="8" name="PRIMARY">
-      <columns>ID</columns>
+    <key id="40" parent="9" name="PRIMARY">
+      <columns>LogID</columns>
       <primary>1</primary>
     </key>
-    <key id="31" parent="8" name="Logs_File_uindex">
+    <key id="41" parent="9" name="logs_File_uindex">
       <columns>File</columns>
-      <underlying-index>Logs_File_uindex</underlying-index>
+      <underlying-index>logs_File_uindex</underlying-index>
     </key>
+    <foreign-key id="42" parent="9" name="logs_locatie_LOID_fk">
+      <columns>LOCID</columns>
+      <ref-key>~.locatie.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="43" parent="9" name="logs_types_TID_fk">
+      <columns>Tp</columns>
+      <ref-key>~.types.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from DbClass import DbClass
-
+import os
 
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
-    render_template('login.html',error=error)
+    render_template('login.html')
 
 @app.route('/Home', methods=['post'])
 def Homepage():
@@ -53,4 +53,6 @@ def commentsent():
 
 
 if __name__ == '__main__':
-    app.run()
+    # app.run()
+    port = int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0', port=80,debug=True)
