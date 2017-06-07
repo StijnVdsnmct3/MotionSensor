@@ -12,13 +12,16 @@
     <p class="centeredheader"><img src={{ url_for('static',filename='images/sec.jpg') }}></p>
 </header>
 <main>
-    <form action="{{ url_for('Login') }}" method="POST">
-        <label>Username:</label>
-        <input type="text" placeholder="Enter Username" name="uname">
-        <label>Password:</label>
-        <input type="password" placeholder="Enter Password" name="psw">
-        <button type="submit" >Login</button>
-    </form>
+        <div class="form">
+            <legend>HomeSecurity</legend>
+            <form action="{{ url_for('Login') }}" method="POST">
+                <label>Username:</label>
+                <input type="text" placeholder="Enter Username" name="uname">
+                <label>Password:</label>
+                <input type="password" placeholder="Enter Password" name="psw"><br>
+                <button type="submit" >Login</button>
+            </form>
+        </div>
 </main>
 
 <footer>

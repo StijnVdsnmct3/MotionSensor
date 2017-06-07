@@ -96,6 +96,7 @@ img
 
 table, th, td {
     border: 1px solid black;
+    margin: 0 auto;
 }
 
 th {
@@ -119,12 +120,57 @@ header {
     top: 0;
 }
 main {
-    top: 100px;
-    bottom: 100px;
+    height: 900px;
+    /*top: 100px;*/
+    /*bottom: 100px;*/
     overflow: auto;
     background: #CCC;
 }
 
 footer {
     bottom: 0;
-}​
+}
+textarea {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+ }
+
+.form {
+     border: 2px solid black;
+     width: 27%;
+     height: 500px;
+     margin: 0 auto;
+     margin-top: 150px;
+    background-color: aquamarine;
+}
+
+.form label {
+    display: block;
+    text-align: center;
+}
+
+.form button {
+    display: block;
+    margin: 0 auto;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.form input {
+    display: block;
+    margin: 0 auto;
+}
+
+legend {
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: "Bell MT";
+    font-size: 50px;
+}
