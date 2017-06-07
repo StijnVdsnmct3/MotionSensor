@@ -12,17 +12,16 @@
 </head>
 <body>
 
-<header>
+
 <ul>
   {% block navigation %}
       <li><a {% block home %} {% endblock %}href="{{ url_for('Homepage') }}">Home</a></li>
       <li><a {% block database %} {% endblock %} href="{{ url_for('database') }}">Database</a></li>
-      <li><a {% block logs %} {% endblock %}href="{{ url_for('logs') }}">Logs</a></li>
-      <li><a {% block comments %} {% endblock %}href="{{ url_for('comment') }}">Comments</a></li>
-      <li class="right"><a {% block statistics %} {% endblock %} href="{{ url_for('stats') }}">Statistics</a></li>
+      <li><a {% block logs %} {% endblock %}href="{{ url_for('Logs') }}">Logs</a></li>
+      <li><a class="right" {% block comments %} {% endblock %} href="{{ url_for('comments') }}">Comments</a></li>
   {% endblock %}
 </ul>
-</header>
+
 
 
 {% block body %}

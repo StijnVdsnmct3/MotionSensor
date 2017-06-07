@@ -26,7 +26,7 @@ def Login():
 
 @app.route('/Home')
 def Homepage():
-    render_template('home.html')
+    return render_template('home.html')
 
 @app.route('/Logs')
 def Logs():
