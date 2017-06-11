@@ -23,18 +23,18 @@ sock.connect(('192.168.1.99', 9050))
 def motion(video, foto):
     if foto == True:
         print("zit in foto")
-        save_path = '/home/pi/project1/static/Files'
+        save_path = "/home/pi/project1/static/Files/"
         filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.jpg")
         complete_path = os.path.join(save_path, filename)
-        camera.capture(filename)
+        camera.capture(complete_path)
         print("nu database")
         do = DbClass()
         do.insertlog(1, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 1, filename)
     if video == True:
-        save_path = '/home/pi/project1/static/Files'
+        save_path = "/home/pi/project1/static/Files/"
         filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.h264")
         complete_path = os.path.join(save_path, filename)
-        camera.start_recording(filename)
+        camera.start_recording(complete_path)
         camera.wait_recording(5)
         camera.stop_recording()
         do = DbClass()
