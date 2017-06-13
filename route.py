@@ -105,7 +105,7 @@ def deletelog():
     return Logs()
 
 @app.route('/deleteuser', methods=['POST'])
-def deletelog():
+def deleteuser():
     from flask import request
 
     USERID = request.form['delete']
@@ -119,7 +119,20 @@ def display():
     LogID = request.form['view']
     do = DbClass()
     result = do.getlog(LogID)
-    return render_template('display.html', tp=result[0], fname=result[1])
+    TP = [x[3] for x in result]
+    File = [x[4] for x in result]
+    return render_template('display.html', Tp=TP[0], fname=File[0])
+
+@app.route('/updatelog', methods=['POST'])
+def updatelog():
+    from flask import request
+    LogID = request.form['Log']
+    Notitie = request.form['notitie']
+    belang = request.form['belang']
+
+    do = DbClass()
+    do.updatelog(LogID,Notitie,belang)
+    return Logs()
 
 @app.route("/logout")
 def logout():

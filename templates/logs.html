@@ -33,10 +33,24 @@
                 <input type="hidden" value="{{ log[0] }}" name="view">
                 <button type="submit" >View</button>
             </form></td>
+            <td><form action="{{ url_for('deletelog') }}" method="POST">
+                <input type="hidden" value="{{ log[0] }}" name="delete">
+                <button type="submit" >Delete</button>
+            </form>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
     </table>
+            <form action="{{ url_for('updatelog') }}" method="POST">
+                <label>LogID:</label>
+                <input type="text" placeholder="Enter LogID" name="Log">
+                <label>Notitie:</label>
+                <textarea name="notitie">Geef hier uw notitie voor dit log in</textarea>
+                <label>Belangrijk:</label>
+                <input type="text" placeholder="0 niet belangrijk/ 1 wel belangrijk" name="belang">
+                <button type="submit" >Update Log</button>
+            </form>
     </main>
 
 {%  endblock %}

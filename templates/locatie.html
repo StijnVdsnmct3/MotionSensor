@@ -20,7 +20,7 @@
             <td>{{ locatie[0] }}</td>
             <td>{{ locatie[1] }}</td>
             <td> <form action="{{ url_for('deletecomment') }}" method="POST">
-                <input type="hidden" value="{{ comment[0] }}" name="delete">
+                <input type="hidden" value="{{ locatie[0] }}" name="delete">
                 <button type="submit" >Delete</button>
             </form></td>
         </tr>

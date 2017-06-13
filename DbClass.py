@@ -101,7 +101,7 @@ class DbClass:
 
     def delcomment(self, COID):
         # Query met parameters
-        sqlQuery = "DELETE * FROM comments WHERE COID = '{param1}'"
+        sqlQuery = "DELETE FROM comments WHERE COID = '{param1}'"
         # Combineren van de query en parameter
         sqlCommand = sqlQuery.format(param1=COID)
 
@@ -111,7 +111,7 @@ class DbClass:
 
     def dellog(self, LogID):
         # Query met parameters
-        sqlQuery = "DELETE * FROM logs WHERE LogID = '{param1}'"
+        sqlQuery = "DELETE FROM logs WHERE LogID = '{param1}'"
         # Combineren van de query en parameter
         sqlCommand = sqlQuery.format(param1=LogID)
 
@@ -121,7 +121,7 @@ class DbClass:
 
     def deluser(self, USERID):
         # Query met parameters
-        sqlQuery = "DELETE * FROM users WHERE USERID = '{param1}'"
+        sqlQuery = "DELETE FROM users WHERE USERID = '{param1}'"
         # Combineren van de query en parameter
         sqlCommand = sqlQuery.format(param1=USERID)
 
@@ -131,7 +131,7 @@ class DbClass:
 
     def dellocatie(self, LOID):
         # Query met parameters
-        sqlQuery = "DELETE * FROM locatie WHERE LOID = '{param1}'"
+        sqlQuery = "DELETE FROM locatie WHERE LOID = '{param1}'"
         # Combineren van de query en parameter
         sqlCommand = sqlQuery.format(param1=LOID)
 
@@ -141,10 +141,19 @@ class DbClass:
 
     def getlog(self, LogID):
 
-        sqlQuery = "SELECT Tp, File FROM logs WHERE LogID = '{param1}'"
+        sqlQuery = "SELECT * FROM logs WHERE LogID = '{param1}'"
         sqlCommand = sqlQuery.format(param1=LogID)
 
         self.__cursor.execute(sqlCommand)
         result = self.__cursor.fetchall()
         self.__cursor.close()
         return result
+
+    def updatelog(self, LogID, notitie, belang):
+
+        sqlQuery = "UPDATE logs SET Notitie = '{param2}', Belangrijk = '{param3}' WHERE LogID = '{param1}'"
+        sqlCommand = sqlQuery.format(param1=LogID, param2=notitie, param3=belang)
+
+        self.__cursor.execute(sqlCommand)
+        self.__connection.commit()
+        self.__cursor.close()

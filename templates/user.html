@@ -23,6 +23,11 @@
             <td>{{ user[1] }}</td>
             <td>{{ user[2] }}</td>
             <td>{{ user[3] }}</td>
+            <td><form action="{{ url_for('deleteuser') }}" method="POST">
+                <input type="hidden" value="{{ user[0] }}" name="delete">
+                <button type="submit" >Delete</button>
+            </form>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
