@@ -100,8 +100,13 @@ def deletelog():
     from flask import request
 
     LogID = request.form['delete']
+    file = request.form['fdelete']
     do = DbClass()
     do.dellog(LogID)
+    save_path = "/home/pi/project1/static/Files/"
+    filename = file
+    complete_path = os.path.join(save_path, filename)
+    os.remove(complete_path)
     return Logs()
 
 @app.route('/deleteuser', methods=['POST'])
