@@ -22,7 +22,6 @@ sock.connect(('192.168.1.99', 9050))
 
 def motion(video, foto):
     if foto == True:
-        print("zit in foto")
         save_path = "/home/pi/project1/static/Files/"
         filename = datetime.now().strftime("%Y-%m-%d_%H:%M:%S.jpg")
         complete_path = os.path.join(save_path, filename)
@@ -47,7 +46,6 @@ while True:
         GPIO.wait_for_edge(sensor, GPIO.RISING)
         data = 'beweging'
         sock.sendall(data.encode('utf-8'))
-        print("beweging verstuurd")
         motion(video,foto)
         time.sleep(10)
     except:

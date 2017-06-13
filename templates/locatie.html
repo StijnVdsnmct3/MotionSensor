@@ -8,16 +8,24 @@
 {% block body %}
     <main>
     <table>
+    <thead>
     <tr>
         <th>LOCID</th>
         <th>Locatienaam</th>
      </tr>
+    </thead>
+    <tbody>
     {% for locatie in locaties %}
         <tr>
             <td>{{ locatie[0] }}</td>
             <td>{{ locatie[1] }}</td>
+            <td> <form action="{{ url_for('deletecomment') }}" method="POST">
+                <input type="hidden" value="{{ comment[0] }}" name="delete">
+                <button type="submit" >Delete</button>
+            </form></td>
         </tr>
     {% endfor %}
+    </tbody>
     </table>
     </main>
 

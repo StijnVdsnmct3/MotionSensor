@@ -38,7 +38,7 @@ def Logs():
 def comments():
     return render_template('comments.html')
 
-@app.route('/commentsent', methods=['post'])
+@app.route('/commentsent', methods=['POST'])
 def commentsent():
     from flask import request
 
@@ -47,7 +47,7 @@ def commentsent():
     bericht = request.form['comment']
     do = DbClass()
     do.setcomments(naam,voornaam,bericht)
-    return render_template('commentsent.html')
+    return comments()
 
 @app.route('/database')
 def database():
@@ -77,6 +77,54 @@ def commenttabel():
     result = do.getcomments()
     return render_template('commenttabel.html', cmts = result)
 
+@app.route('/deletecomment', methods=['POST'])
+def deletecomment():
+    from flask import request
+
+    COID = request.form['delete']
+    do = DbClass()
+    do.delcomment(COID)
+    return commenttabel()
+
+@app.route('/deletelocatie', methods=['POST'])
+def deletelocatie():
+    from flask import request
+
+    LOID = request.form['delete']
+    do = DbClass()
+    do.dellocatie(LOID)
+    return locatie()
+
+@app.route('/deletelog', methods=['POST'])
+def deletelog():
+    from flask import request
+
+    LogID = request.form['delete']
+    do = DbClass()
+    do.dellog(LogID)
+    return Logs()
+
+@app.route('/deleteuser', methods=['POST'])
+def deletelog():
+    from flask import request
+
+    USERID = request.form['delete']
+    do = DbClass()
+    do.deluser(USERID)
+    return user()
+
+@app.route('/display', methods=['POST'])
+def display():
+    from flask import request
+    LogID = request.form['view']
+    do = DbClass()
+    result = do.getlog(LogID)
+    return render_template('display.html', tp=result[0], fname=result[1])
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return Index()
 
 if __name__ == '__main__':
     # app.run()

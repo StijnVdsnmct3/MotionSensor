@@ -8,12 +8,15 @@
 {% block body %}
     <main>
     <table>
+    <thead>
     <tr>
         <th>UserID</th>
         <th>UserName</th>
         <th>Password</th>
         <th>Role</th>
      </tr>
+    </thead>
+    <tbody>
     {% for user in users %}
         <tr>
             <td>{{ user[0] }}</td>
@@ -22,6 +25,7 @@
             <td>{{ user[3] }}</td>
         </tr>
     {% endfor %}
+    </tbody>
     </table>
     </main>
 

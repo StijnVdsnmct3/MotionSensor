@@ -8,6 +8,7 @@
 {% block body %}
     <main>
     <table>
+    <thead>
     <tr>
         <th>LOGID</th>
         <th>Locatie</th>
@@ -17,6 +18,8 @@
         <th>Notitie</th>
         <th>Belangrijk</th>
      </tr>
+    </thead>
+    <tbody>
     {% for log in logs %}
         <tr>
             <td>{{ log[0] }}</td>
@@ -26,8 +29,13 @@
             <td>{{ log[4] }}</td>
             <td>{{ log[5] }}</td>
             <td>{{ log[6] }}</td>
+            <td><form action="{{ url_for('display') }}" method="POST">
+                <input type="hidden" value="{{ log[0] }}" name="view">
+                <button type="submit" >View</button>
+            </form></td>
         </tr>
     {% endfor %}
+    </tbody>
     </table>
     </main>
 

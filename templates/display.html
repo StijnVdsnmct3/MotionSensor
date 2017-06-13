@@ -1,0 +1,19 @@
+{% extends "basis.html" %}
+ {% block title %}
+     Logs
+ {% endblock %}
+{% block logs %}
+    class="active"
+{% endblock %}
+{% block body %}
+    <main>
+        {% if tp == 1 %}
+            <img src="{{ url_for('static',filename='Files/'+fname|string) }}" >
+        {% else %}
+            <video width="560" controls>
+                <source src="{{ url_for('static',filename='Files/'+fname|string) }}" type="video/mp4">
+            </video>
+        {% endif %}
+    </main>
+
+{%  endblock %}

@@ -1,3 +1,5 @@
+/*RESET CSS*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
 
 body {
     margin: 0px;
@@ -94,18 +96,28 @@ img
 }
 
 
-table, th, td {
-    border: 1px solid black;
-    margin: 0 auto;
+table {
+  width: 100%;
 }
 
-th {
-    background-color: blue;
-    color: white;
+table tr th {
+  padding: 0.5em;
+  text-align: left;
+  background-color: #aaa;
+  color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+table tr td {
+  padding: 0.5em;
+  text-align: left;
 }
 
 
-header, footer, main {
+header, footer {
     position: absolute;
     left: 0;
     width: 100%;
@@ -120,10 +132,14 @@ header {
     top: 0;
 }
 main {
-    height: 900px;
-    /*top: 100px;*/
-    /*bottom: 100px;*/
-    overflow: auto;
+    /*height: 900px;*/
+    /*!*top: 100px;*!*/
+    /*!*bottom: 100px;*!*/
+    /*overflow: auto;*/
+    margin: 80px auto 40px;
+	max-width: 980px;
+	position: relative;
+	padding: 20px 20px 20px 20px;
     background: #CCC;
 }
 
