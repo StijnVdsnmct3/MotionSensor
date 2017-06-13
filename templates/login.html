@@ -9,7 +9,7 @@
 <header>
 	<p class="leftheader"></p>
 	<p class="rightheader"></p>
-    <p class="centeredheader"><img src={{ url_for('static',filename='images/sec.jpg') }}></p>
+    <p class="centeredheader"><img class="imgheader" src={{ url_for('static',filename='images/sec.jpg') }}></p>
 </header>
 <main>
         <div class="form">
@@ -25,9 +25,9 @@
 </main>
 
 <footer>
-	<p class="left"><br />Next line here</p>
-	<p class="right">Right aligned text here<br />Next line here</p>
-    <p class="centered">Center Text here<br />Next line here</p>
+	<p class="left"></p>
+	<p class="right"></p>
+    <p class="centered"><br><img  class="imgfooter" src="{{ url_for('static',filename='images/cc.png') }}" ></p>
 </footer>
 
 </body>
