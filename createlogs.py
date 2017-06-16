@@ -9,7 +9,8 @@ import socket
 
 
 camera = PiCamera()
-
+camera.hflip = True
+camera.vflip = True
 sensor = 22
 video = False
 foto = True
