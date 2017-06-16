@@ -219,3 +219,11 @@ legend {
     max-width: 150px;
     max-height: 50px;
 }
+
+#roteer {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
